@@ -1,6 +1,8 @@
-const Redis = require('ioredis')
+import Redis from 'ioredis'
+import { RedisConfigType } from '../types/utils-typs'
 
 let BaseConfig = {}
+let initRedis = {}
 
 if (process.env.NODE_ENV === 'dev') {
     initRedis = {
@@ -17,7 +19,7 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 
-const initStone = (config) => {
+const initStone = (config: RedisConfigType) => {
     BaseConfig = {
         ...initRedis,
         ...config,
@@ -25,4 +27,4 @@ const initStone = (config) => {
     return new Redis(BaseConfig)
 }
 
-module.exports = initStone
+export default initStone
