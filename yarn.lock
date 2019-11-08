@@ -76,6 +76,15 @@
     "@types/events" "*"
     "@types/node" "*"
 
+"@types/glob@^7.1.1":
+  version "7.1.1"
+  resolved "http://npm.goweike.cn/@types%2fglob/-/glob-7.1.1.tgz#aa59a1c6e3fbc421e07ccd31a944c30eba521575"
+  integrity sha512-1Bh06cbWJUHMC97acuD6UMG29nMt0Aqz1vF3guLfG+kHHJhy3AyohZFFxYk2f7Q1SQIrNwvncxAE0N/9s70F2w==
+  dependencies:
+    "@types/events" "*"
+    "@types/minimatch" "*"
+    "@types/node" "*"
+
 "@types/http-assert@*":
   version "1.5.1"
   resolved "http://npm.goweike.cn/@types%2fhttp-assert/-/http-assert-1.5.1.tgz#d775e93630c2469c2f980fc27e3143240335db3b"
@@ -150,10 +159,20 @@
   resolved "http://npm.goweike.cn/@types%2fmime/-/mime-2.0.1.tgz#dc488842312a7f075149312905b5e3c0b054c79d"
   integrity sha512-FwI9gX75FgVBJ7ywgnq/P7tw+/o1GUbtP0KzbtusLigAOgIgNISRK0ZPl4qertvXSIE8YbsVJueQ90cDt9YYyw==
 
+"@types/minimatch@*", "@types/minimatch@^3.0.3":
+  version "3.0.3"
+  resolved "http://npm.goweike.cn/@types%2fminimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
+  integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
+
 "@types/node@*":
   version "12.12.6"
   resolved "http://npm.goweike.cn/@types%2fnode/-/node-12.12.6.tgz#a47240c10d86a9a57bb0c633f0b2e0aea9ce9253"
   integrity sha1-pHJAwQ2GqaV7sMYz8LLgrqnOklM=
+
+"@types/q@^1.5.2":
+  version "1.5.2"
+  resolved "http://npm.goweike.cn/@types%2fq/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
+  integrity sha1-aQoUdbhPKohP0HzXl8APXzE1bqg=
 
 "@types/range-parser@*":
   version "1.2.3"

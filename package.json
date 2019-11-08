@@ -4,19 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch-server": "export NODE_ENV='dev' && nodemon --watch 'src/***/*' -e ts,tsx --exec 'ts-node' ./src/index.ts",
-    "dev": "export NODE_ENV='dev' && supervisor ./index.js",
-    "server": "export NODE_ENV='production' && pm2 start ./index.js"
+    "dev": "export NODE_ENV='dev' && nodemon --watch 'src/***/*' -e ts,tsx --exec 'ts-node' ./src/index.ts",
+    "server": "export NODE_ENV='production' && pm2 start ./dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/formidable": "^1.0.31",
+    "@types/glob": "^7.1.1",
     "@types/ioredis": "^4.0.18",
     "@types/jsonwebtoken": "^8.3.5",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.0.42",
     "@types/koa2-cors": "^2.0.1",
+    "@types/minimatch": "^3.0.3",
+    "@types/q": "^1.5.2",
     "@types/sequelize": "^4.28.6",
     "formidable": "^1.2.1",
     "ioredis": "^4.14.1",
