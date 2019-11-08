@@ -4,12 +4,15 @@ const bodyParser = require('koa-bodyparser')
 // const authRouter = require('./router/auth')
 const checkAuthrization = require('./middleware/checkAuthrization')
 const app = new koa()
+const sequelize = require('./connect/query')
+const PORT = 9000
 
-app.use(cors());
+app.use(cors()); // 处理跨域的包，默认全部开放
 app.use(bodyParser())
-// app.use(authRouter.routes(), authRouter.allowedMethods())
 app.use(checkAuthrization())
 
-app.listen(3000, () => {
-  console.log('server run in port 3000')
+// app.use(authRouter.routes(), authRouter.allowedMethods())
+
+app.listen(PORT, () => {
+  console.log(`Nodejs server will running in ${PORT}`)
 })

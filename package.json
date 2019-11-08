@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "supervisor ./index.js",
-    "server": "pm2 start ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "export NODE_ENV='dev' && supervisor ./index.js", 
+    "server": "export NODE_ENV='production' && pm2 start ./index.js"
   },
   "author": "",
   "license": "ISC",
