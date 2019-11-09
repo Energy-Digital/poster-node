@@ -19,11 +19,11 @@ if (process.env.NODE_ENV === 'production') { // 生产环境
 	}
 } else { // dev环境配置
 	INIT_CONFIG = {
-		host: '118.24.27.245',
+		host: 'localhost',
 		database: 'poster-test',
-		username: 'poster-test',
-		password: '6653145',
-		port: 3306,
+		username: 'root',
+		password: 'du6653145',
+		port: 3306
 	}
 }
 

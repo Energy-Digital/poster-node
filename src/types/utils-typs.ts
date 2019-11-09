@@ -21,3 +21,8 @@ export interface MysqlQueryType {
     password: string,
     port: number
 }
+
+export interface UserInfoType {
+    username: string
+    password: string
+}

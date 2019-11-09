@@ -1,16 +1,22 @@
 import jwt from 'jsonwebtoken'
 import formidable from 'formidable'
 import utils from 'utility'
+import { UserInfoType } from '@/types/utils-typs'
+import { PASSWORDSALT, SETSESSIONTOKENSALT } from './variable'
+import {Context, Next} from 'koa'
 
-const secret = 'saltKey'
+export function setSessionToken(info: UserInfoType) {
+  const mixString = info.password + info.username
+  return utils.md5(utils.md5(mixString + SETSESSIONTOKENSALT))
+}
 
 export function setToken(payload: {[key: string]: any}) {
-    return jwt.sign(payload, secret, { expiresIn: '2h' })
+    return jwt.sign(payload, PASSWORDSALT, { expiresIn: '2h' })
 }
 
 export function checkToken(token: string) {
   return new Promise((resolve, reject) => {
-    jwt.verify(token, secret, (err: Error, decoded: {[key: string]: any}) => {
+    jwt.verify(token, PASSWORDSALT, (err: Error, decoded: {[key: string]: any}) => {
       if (err) {
         reject(err)
         return
@@ -44,6 +50,18 @@ export async function treamentFormData(data: any){
 
 export function md5Pwd(salt: string, pwd: string){
   return utils.md5(utils.md5(pwd + salt))
+}
+
+export function WrapResponse(data: any = {}, code = 0, msg = '操作成功') {
+    const Cb = {
+        msg: msg,
+        data: data,
+        code: code
+    }
+    return {
+       ...Cb
+    }
+
 }
 
 

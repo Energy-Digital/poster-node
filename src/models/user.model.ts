@@ -16,21 +16,25 @@ const User = sequelize.define('user', {
     registertime: {
         type: Sequelize.TIME
     },
+    psw: {
+        type: Sequelize.STRING
+    },
     token: {
         type: Sequelize.STRING,
         allowNull: false
     },
     tel: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        defaultValue: 0
     },
     avatar: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
     },
     enable: {
         type:Sequelize.NUMBER,
-        allowNull: false,
+        allowNull: true,
         defaultValue: 1
-    }
-})
+    },
+}, {freezeTableName: true, timestamps: false})
 
 export default User
