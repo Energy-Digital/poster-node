@@ -20,6 +20,7 @@ npm run server
 ```
 ### Directory structure
 
+<pre>
 dist // 打包后文件
 example  //前端测试文件
 node_modules
@@ -32,7 +33,7 @@ src/
     &emsp;&emsp;--utils // 工具类
     &emsp;&emsp;index.ts // 主入口
 tsconfig.json
-
+</pre>
 
 #### 11.09 add
 解决一个狗日的alias在node & ts才会存在的奇葩路径问题，项目目录初步设计完成
