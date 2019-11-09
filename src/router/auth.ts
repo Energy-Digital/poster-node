@@ -1,6 +1,6 @@
-// 鉴权特殊模块
+// 鉴权特殊模块 一般用来鉴权 登陆 注册
 import Router from 'koa-router'
-import Auth from '../modules/authController'
+import Auth from '@/modules/user/AuthController'
 
 const router = new Router()
 

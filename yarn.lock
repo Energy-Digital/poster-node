@@ -164,6 +164,11 @@
   resolved "http://npm.goweike.cn/@types%2fminimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
+"@types/module-alias@^2.0.0":
+  version "2.0.0"
+  resolved "http://npm.goweike.cn/@types%2fmodule-alias/-/module-alias-2.0.0.tgz#882668f8b8cdbda44812c3b592c590909e18849e"
+  integrity sha1-iCZo+LjNvaRIEsO1ksWQkJ4YhJ4=
+
 "@types/node@*":
   version "12.12.6"
   resolved "http://npm.goweike.cn/@types%2fnode/-/node-12.12.6.tgz#a47240c10d86a9a57bb0c633f0b2e0aea9ce9253"
@@ -282,11 +287,6 @@ array-unique@^0.2.1:
   resolved "http://npm.goweike.cn/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
   integrity sha1-odl8yvy8JiXMcPrc6zalDFiwGlM=
 
-bignumber.js@7.2.1:
-  version "7.2.1"
-  resolved "http://npm.goweike.cn/bignumber.js/-/bignumber.js-7.2.1.tgz#80c048759d826800807c4bfd521e50edbba57a5f"
-  integrity sha1-gMBIdZ2CaACAfEv9Uh5Q7bulel8=
-
 bluebird@3.5.1:
   version "3.5.1"
   resolved "http://npm.goweike.cn/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
@@ -393,11 +393,6 @@ copy-to@^2.0.1:
   version "2.0.1"
   resolved "http://npm.goweike.cn/copy-to/-/copy-to-2.0.1.tgz#2680fbb8068a48d08656b6098092bdafc906f4a5"
   integrity sha1-JoD7uAaKSNCGVrYJgJK9r8kG9KU=
-
-core-util-is@~1.0.0:
-  version "1.0.2"
-  resolved "http://npm.goweike.cn/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
-  integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
 debug@3.1.0, debug@~3.1.0:
   version "3.1.0"
@@ -591,7 +586,7 @@ inflection@1.12.0:
   resolved "http://npm.goweike.cn/inflection/-/inflection-1.12.0.tgz#a200935656d6f5f6bc4dc7502e1aecb703228416"
   integrity sha1-ogCTVlbW9fa8TcdQLhrstwMihBY=
 
-inherits@2.0.4, inherits@~2.0.3:
+inherits@2.0.4:
   version "2.0.4"
   resolved "http://npm.goweike.cn/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
@@ -654,11 +649,6 @@ isarray@0.0.1:
   version "0.0.1"
   resolved "http://npm.goweike.cn/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
   integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
-
-isarray@~1.0.0:
-  version "1.0.0"
-  resolved "http://npm.goweike.cn/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
-  integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
 isobject@^1.0.0:
   version "1.0.2"
@@ -953,6 +943,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+module-alias@^2.2.2:
+  version "2.2.2"
+  resolved "http://npm.goweike.cn/module-alias/-/module-alias-2.2.2.tgz#151cdcecc24e25739ff0aa6e51e1c5716974c0e0"
+  integrity sha1-FRzc7MJOJXOf8KpuUeHFcWl0wOA=
+
 moment-timezone@^0.5.21:
   version "0.5.27"
   resolved "http://npm.goweike.cn/moment-timezone/-/moment-timezone-0.5.27.tgz#73adec8139b6fe30452e78f210f27b1f346b8877"
@@ -1038,16 +1033,6 @@ mysql2@^2.0.0:
     named-placeholders "^1.1.2"
     seq-queue "^0.0.5"
     sqlstring "^2.3.1"
-
-mysql@^2.17.1:
-  version "2.17.1"
-  resolved "http://npm.goweike.cn/mysql/-/mysql-2.17.1.tgz#62bba4a039a9b2f73638cd1652ce50fc6f682899"
-  integrity sha1-YrukoDmpsvc2OM0WUs5Q/G9oKJk=
-  dependencies:
-    bignumber.js "7.2.1"
-    readable-stream "2.3.6"
-    safe-buffer "5.1.2"
-    sqlstring "2.3.1"
 
 mz@^2.7.0:
   version "2.7.0"
@@ -1139,11 +1124,6 @@ path-to-regexp@^1.1.1:
   dependencies:
     isarray "0.0.1"
 
-process-nextick-args@~2.0.0:
-  version "2.0.1"
-  resolved "http://npm.goweike.cn/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
-  integrity sha1-eCDZsWEgzFXKmud5JoCufbptf+I=
-
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "http://npm.goweike.cn/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
@@ -1162,19 +1142,6 @@ raw-body@~2.1.2:
     bytes "2.4.0"
     iconv-lite "0.4.13"
     unpipe "1.0.0"
-
-readable-stream@2.3.6:
-  version "2.3.6"
-  resolved "http://npm.goweike.cn/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
-  integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
-  dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.3"
-    isarray "~1.0.0"
-    process-nextick-args "~2.0.0"
-    safe-buffer "~5.1.1"
-    string_decoder "~1.1.1"
-    util-deprecate "~1.0.1"
 
 redeyed@~2.1.0:
   version "2.1.1"
@@ -1237,7 +1204,7 @@ right-align@^0.1.3:
   dependencies:
     align-text "^0.1.1"
 
-safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+safe-buffer@5.1.2:
   version "5.1.2"
   resolved "http://npm.goweike.cn/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
@@ -1340,7 +1307,7 @@ sparse-bitfield@^3.0.3:
   dependencies:
     memory-pager "^1.0.2"
 
-sqlstring@2.3.1, sqlstring@^2.3.1:
+sqlstring@^2.3.1:
   version "2.3.1"
   resolved "http://npm.goweike.cn/sqlstring/-/sqlstring-2.3.1.tgz#475393ff9e91479aea62dcaf0ca3d14983a7fb40"
   integrity sha1-R1OT/56RR5rqYtyvDKPRSYOn+0A=
@@ -1354,13 +1321,6 @@ standard-as-callback@^2.0.1:
   version "1.5.0"
   resolved "http://npm.goweike.cn/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
-
-string_decoder@~1.1.1:
-  version "1.1.1"
-  resolved "http://npm.goweike.cn/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
-  integrity sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
-  dependencies:
-    safe-buffer "~5.1.0"
 
 striptags@^2.0.3:
   version "2.2.1"
@@ -1436,11 +1396,6 @@ urijs@^1.19.0:
   version "1.19.2"
   resolved "http://npm.goweike.cn/urijs/-/urijs-1.19.2.tgz#f9be09f00c4c5134b7cb3cf475c1dd394526265a"
   integrity sha1-+b4J8AxMUTS3yzz0dcHdOUUmJlo=
-
-util-deprecate@~1.0.1:
-  version "1.0.2"
-  resolved "http://npm.goweike.cn/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
-  integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
 utility@^1.16.1:
   version "1.16.1"

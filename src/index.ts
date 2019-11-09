@@ -1,21 +1,17 @@
 import Koa from 'koa';
 import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'
-import authRouter from './router/auth'
-import { checkAuthrization } from './middleware/checkAuthrization'
-import sequelize from './connect/query'
-
+import alias from 'module-alias'
+const initAlias = () => {
+  alias.addAliases({
+    '@': __dirname
+  })
+}
+initAlias()
+import authRouter from '@/router/auth'
+import { checkAuthrization } from '@/middleware/checkAuthrization'
 const app = new Koa()
 const PORT = 9000
-
-sequelize
-  .authenticate() // test mysql connect
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
 
 app.use(cors()); // 处理跨域的包，默认全部开放
 app.use(bodyParser())

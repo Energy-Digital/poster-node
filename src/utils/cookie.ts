@@ -1,4 +1,4 @@
-import { CookieConfigType } from '../types/utils-typs'
+import { CookieConfigType } from '@/types/utils-typs'
 
 const initCookieConf: CookieConfigType = {
     expires: new Date().getTime() + (1000 * 60 * 60 * 24 * 365),      //过期时间，unix时间戳

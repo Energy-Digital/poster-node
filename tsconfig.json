@@ -3,10 +3,17 @@
         "module": "commonjs",
         "target": "es2017",
         "noImplicitAny": true,
+        "baseUrl": "src",
+        "rootDir": "src",
+        "experimentalDecorators": true,    
         "esModuleInterop": true,
+        "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "outDir": "./dist",
-        "sourceMap": true
+        "sourceMap": true,
+        "paths": {
+            "@/*": ["*"]
+        }
     },
     "include": [
         "./src/",

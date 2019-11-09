@@ -1,5 +1,5 @@
 import Redis from 'ioredis'
-import { RedisConfigType } from '../types/utils-typs'
+import { RedisConfigType } from '@/types/utils-typs'
 
 let BaseConfig = {}
 let initRedis = {}

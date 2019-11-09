@@ -1,5 +1,4 @@
 import { Context, Next } from "koa"
-import Util from '../utils/tools'
 
 export function checkAuthrization() {
     return async (ctx: Context, next: Next) => {

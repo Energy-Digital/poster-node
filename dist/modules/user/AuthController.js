@@ -1,14 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// function md5Pwd(pwd: string){
-//   const salt = 'yikesaiting'
-//   return utils.md5(utils.md5(pwd + salt))
-// }
-// function refreshToken(info) {
-//   const userInfo = info
-//   const token = Util.setToken(userInfo)
-//   return token
-// }
 class AuthController {
     static async login(ctx, next) {
         try {
@@ -30,4 +21,4 @@ class AuthController {
     }
 }
 exports.default = AuthController;
-//# sourceMappingURL=authController.js.map
+//# sourceMappingURL=AuthController.js.map
