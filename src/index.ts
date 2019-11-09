@@ -9,7 +9,7 @@ const initAlias = () => {
   })
 }
 initAlias()
-import authRouter from '@/router/auth'
+import authRouter from '@/router/user/auth'
 import { checkAuthrization } from '@/middleware/checkAuthrization'
 const app = new Koa()
 const PORT = 9000
