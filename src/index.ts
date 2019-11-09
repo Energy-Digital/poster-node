@@ -2,9 +2,10 @@ import Koa from 'koa';
 import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'
 import alias from 'module-alias'
+import path from 'path'
 const initAlias = () => {
   alias.addAliases({
-    '@': __dirname
+    '@': path.resolve(__dirname)
   })
 }
 initAlias()
