@@ -1,12 +1,12 @@
 
-A base library to refactoring poster system by Nodejs
+## A base library to refactoring poster system by Nodejs
 
 
-````
-Coding with Koa (a light Nodejs library) and TypeScript 
-````
 
-[![MV2OUI.md.jpg](https://s2.ax1x.com/2019/11/08/MV2OUI.md.jpg)](https://imgchr.com/i/MV2OUI)
+##### Coding with Koa (a light Nodejs library) and TypeScript 
+
+
+![MV2OUI.md.jpg](https://s2.ax1x.com/2019/11/08/MV2OUI.md.jpg)
 
 
 Dev Mode
@@ -37,6 +37,8 @@ tsconfig.json
 
 #### 11.09 add
 解决一个狗日的alias在node & ts才会存在的奇葩路径问题，项目目录初步设计完成
+
+目前还差一个日志收集系统的设计。监测bug可以借助第三方sentry
 
 
 

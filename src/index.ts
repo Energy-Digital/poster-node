@@ -10,15 +10,28 @@ const initAlias = () => {
 }
 initAlias()
 import authRouter from '@/router/user/auth'
-import { checkAuthrization } from '@/middleware/checkAuthrization'
+import blogRouter from '@/router/blog/blog'
+import { filterAuthrization } from '@/middleware/filterAuthrization'
+import sequelize from './connect/query'
+
 const app = new Koa()
 const PORT = 9000
 
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 app.use(cors()); // 处理跨域的包，默认全部开放
 app.use(bodyParser())
-app.use(checkAuthrization())
+app.use(filterAuthrization())
 
 app.use(authRouter.routes())
+app.use(blogRouter.routes())
 
 app.listen(PORT, () => {
   console.log(`Nodejs server will running in ${PORT}`)

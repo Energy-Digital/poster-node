@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 
-const initStone = (config: RedisConfigType) => {
+const initStone = (config?: RedisConfigType) => {
     BaseConfig = {
         ...initRedis,
         ...config,
