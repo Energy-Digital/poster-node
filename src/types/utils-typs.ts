@@ -1,5 +1,5 @@
 export interface CookieConfigType {
-    expires: number,      //过期时间，unix时间戳
+    expires: any,      //过期时间，unix时间戳
     maxAge:  number,       //cookie有效时长，单位：毫秒数
     path: string,         //cookie保存路径, 默认是'/，set时更改，get时同时修改，不然会保存不上，服务同时也获取不到
     domain: string,       //cookie可用域名，“.”开头支持顶级域名下的所有子域名
@@ -25,4 +25,8 @@ export interface MysqlQueryType {
 export interface UserInfoType {
     username: string
     password: string
+}
+
+export interface NormalObjType {
+    [key: string]: any
 }

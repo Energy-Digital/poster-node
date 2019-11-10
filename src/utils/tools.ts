@@ -52,6 +52,21 @@ export function md5Pwd(salt: string, pwd: string){
   return utils.md5(utils.md5(pwd + salt))
 }
 
+interface objType {
+  [key: string]: any
+}
+
+export function filterforObj(obj:objType ,key: string[]) {
+    const okey = key // ['pws', 'fff']
+    let temp: objType = {}
+    for (const [k, v] of Object.entries(obj)) {
+        if (!okey.includes(k)) {
+          temp[k] = v
+        }
+    }
+    return temp
+}
+
 export function WrapResponse(data: any = {}, code = 0, msg = '操作成功') {
     const Cb = {
         msg: msg,
@@ -61,7 +76,6 @@ export function WrapResponse(data: any = {}, code = 0, msg = '操作成功') {
     return {
        ...Cb
     }
-
 }
 
 

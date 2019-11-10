@@ -2,7 +2,7 @@ import sequelize from '@/connect/query'
 import Sequelize from 'sequelize'
 //id  username	registertime	token	tel	avatar	psw	enable
 
-const User = sequelize.define('user', {
+const User: any = sequelize.define('user', {
     id: {
         type: Sequelize.STRING,
         allowNull: false,

@@ -3,6 +3,17 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <button @click="register">TEST Register</button>
+
+
+    <div>
+      用户名：<input type="text" v-model="username">
+      密码：<input type="text" v-model="psw">
+
+      <button @click="login">login test</button>
+    </div>
+
+
+    <button @click="accessToken">accessToken test</button>
   </div>
 </template>
 
@@ -12,10 +23,26 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      username: '',
+      psw: '',
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
+    login() {
+      const data = {
+        username: this.username,
+        psw: this.psw
+      }
+      axios.get('http://localhost:9000/auth/login', {params: data}).then((res) => {
+        console.log(res)
+      })
+    },
+    accessToken() {
+      axios.get('http://localhost:9000/auth/access_token').then((res) => {
+        console.log(res)
+      })
+    },
     register() {
       const data = new FormData()
       data.append('username', 'dubinbin')

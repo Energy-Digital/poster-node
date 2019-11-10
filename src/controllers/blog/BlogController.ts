@@ -1,5 +1,4 @@
 import initStone  from '@/utils/redis'
-import CookieConfig from '@/utils/cookie'
 import query from '@/connect/query'
 import { Next, Context } from 'koa'
 
