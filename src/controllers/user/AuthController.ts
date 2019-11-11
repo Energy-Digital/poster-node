@@ -9,9 +9,8 @@ import { handleCookie,
   filterforObj,
   setToken
 } from '@/utils/tools'
-import { FAILCODE, PASSWORDSALT, ERRORTIPS, ACCESS_TOKEN_EXPIRE_Time } from '@/utils/variable'
+import { FAILCODE, PASSWORDSALT, ERRORTIPS, ACCESS_TOKEN_EXPIRE_Time, SUCCESSCODE } from '@/utils/variable'
 import User from '@/models/user.model'
-import { NormalObjType } from '@/types/utils-typs'
 
 class AuthController {
 
@@ -20,7 +19,7 @@ class AuthController {
         // 发token 写cookie 存redis
         const {username, psw} = ctx.query
         if ((username && username.length > 0) && (psw && psw.length > 0)) {
-          const handlePsw = md5Pwd(PASSWORDSALT, psw)
+          const handlePsw = md5Pwd(psw)
           const doc = await User.findOne({ where: { username: username, psw: handlePsw }})
           if (doc) {
             const data = doc.dataValues
@@ -44,13 +43,13 @@ class AuthController {
                 access_token: newToken
             }
             ctx.cookies.set('_token', data.token , CookieOpt)
-            ctx.body = WrapResponse(retData, 0, '登陆成功')
+            ctx.body = WrapResponse(retData, SUCCESSCODE, '登陆成功')
           } else {
-            ctx.body = WrapResponse(undefined, -1, '登陆失败')
+            ctx.body = WrapResponse(undefined, FAILCODE, '登陆失败')
           }
         }
       } catch (e) {
-        ctx.body = WrapResponse(undefined, -1, ERRORTIPS)
+        ctx.body = WrapResponse(undefined, FAILCODE, ERRORTIPS)
       }
   }
 
@@ -71,7 +70,7 @@ class AuthController {
               ...retObjfilterForRedis,
               access_token: newToken,
           }
-          ctx.body = WrapResponse(retData, 0, 'success')
+          ctx.body = WrapResponse(retData, SUCCESSCODE, 'success')
         } else {  // redis找得到
             const findToken = await User.findOne({ where: { token: getCookieToken}})
             if (findToken) {
@@ -92,16 +91,16 @@ class AuthController {
                 ...filterObj,
                 access_token: newToken,
             }
-            ctx.body = WrapResponse(retData, 0, 'success')
+            ctx.body = WrapResponse(retData, SUCCESSCODE, 'success')
             } else {
               ctx.status = 401
-              ctx.body = WrapResponse(undefined, -1, 'cookie失效去登陆')
+              ctx.body = WrapResponse(undefined, FAILCODE, 'cookie失效去登陆')
             }
         }
 
       } else {
         ctx.status = 401
-        ctx.body = WrapResponse(undefined, -1, 'cookie失效去登陆')
+        ctx.body = WrapResponse(undefined, FAILCODE, 'cookie失效去登陆')
       }
     }
 
@@ -109,7 +108,7 @@ class AuthController {
     static async register(ctx: Context, next: Next) {
       try {
         const {username, pwd} = await treamentFormData(ctx.req) as {username: string , pwd: string}
-        const handlePsw = md5Pwd(PASSWORDSALT, pwd)
+        const handlePsw = md5Pwd(pwd)
 
         const [user, created] = await User.findOrCreate(
           { where: {username: username}, defaults: {
@@ -119,7 +118,7 @@ class AuthController {
         )
         
         if (created === false) {
-           ctx.body = WrapResponse(undefined, -1, '当前用户名已存在，请重试')
+           ctx.body = WrapResponse(undefined, FAILCODE, '当前用户名已存在，请重试')
         } else {
            const getUserInfo = user.dataValues
            const redis = initStone()
@@ -141,7 +140,7 @@ class AuthController {
           }
           const CookieOpt = CookieConfig()
           ctx.cookies.set('_token', user.token , CookieOpt)
-          ctx.body = WrapResponse(retData, 0, '操作成功')
+          ctx.body = WrapResponse(retData, SUCCESSCODE, '操作成功')
         }
       } catch (e) {
         ctx.body = WrapResponse(undefined, -2, ERRORTIPS)

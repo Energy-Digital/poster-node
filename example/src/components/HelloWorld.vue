@@ -14,6 +14,9 @@
 
 
     <button @click="accessToken">accessToken test</button>
+
+
+    <button @click="testOtherApi">测试其他需要鉴权的接口</button>
   </div>
 </template>
 
@@ -48,6 +51,11 @@ export default {
       data.append('username', 'hahaha')
       data.append('pwd', '6653145')
       axios.post('http://localhost:9000/auth/register', data).then((res) => {
+        console.log(res)
+      })
+    },
+    testOtherApi() {
+     axios.get('http://localhost:9000/blog/info').then((res) => {
         console.log(res)
       })
     }
