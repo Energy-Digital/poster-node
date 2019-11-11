@@ -112,13 +112,36 @@ class AuthController {
         const handlePsw = md5Pwd(PASSWORDSALT, pwd)
 
         const [user, created] = await User.findOrCreate(
-          {where: {username: username}, defaults: {psw: handlePsw, token: setSessionToken({username: username, password: pwd})}}
+          { where: {username: username}, defaults: {
+              psw: handlePsw,
+              token: setSessionToken({username: username, password: pwd})
+          }}
         )
         
         if (created === false) {
            ctx.body = WrapResponse(undefined, -1, '当前用户名已存在，请重试')
         } else {
-           ctx.body = WrapResponse(user, 0, '操作成功')
+           const getUserInfo = user.dataValues
+           const redis = initStone()
+           redis.hmset(getUserInfo.token, new Map([
+            ['username', getUserInfo.username], 
+            ['id', getUserInfo.id ],  
+            ['tel', getUserInfo.tel], 
+            ['psw', getUserInfo.psw],
+            ['avatar',  null] ,
+            ['updateTime', new Date().getTime()] 
+          ]))
+          redis.expire(getUserInfo.token, ACCESS_TOKEN_EXPIRE_Time) // 设置过期时间
+          /* redis end */
+          const newToken = setToken({username: getUserInfo.username, psw: getUserInfo.psw})
+          const returnObj = filterforObj(getUserInfo, ['psw', 'enable'])
+          const retData = {
+              ...returnObj,
+              access_token: newToken
+          }
+          const CookieOpt = CookieConfig()
+          ctx.cookies.set('_token', user.token , CookieOpt)
+          ctx.body = WrapResponse(retData, 0, '操作成功')
         }
       } catch (e) {
         ctx.body = WrapResponse(undefined, -2, ERRORTIPS)

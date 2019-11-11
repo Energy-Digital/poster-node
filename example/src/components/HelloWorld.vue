@@ -45,7 +45,7 @@ export default {
     },
     register() {
       const data = new FormData()
-      data.append('username', 'dubinbin')
+      data.append('username', 'hahaha')
       data.append('pwd', '6653145')
       axios.post('http://localhost:9000/auth/register', data).then((res) => {
         console.log(res)

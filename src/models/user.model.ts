@@ -1,6 +1,6 @@
 import sequelize from '@/connect/query'
 import Sequelize from 'sequelize'
-//id  username	registertime	token	tel	avatar	psw	enable
+//id  username registertime token tel avatar psw enable
 
 const User: any = sequelize.define('user', {
     id: {
