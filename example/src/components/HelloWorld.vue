@@ -17,15 +17,22 @@
 
 
     <button @click="testOtherApi">测试其他需要鉴权的接口</button>
+
+    <div v-for="(item) in list" :key="item.id">
+        <p>{{item.title}}</p>
+        <img :src="item.avatar" alt="">
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Request from '../utils'
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      list: [],
       username: '',
       psw: '',
       msg: 'Welcome to Your Vue.js App'
@@ -55,8 +62,10 @@ export default {
       })
     },
     testOtherApi() {
-     axios.get('http://localhost:9000/blog/info').then((res) => {
-        console.log(res)
+      Request.$get('/blog/info', {}).then((res) => {
+         if (res.data.code === 0) {
+           this.list = res.data.data.data.list
+         }
       })
     }
   }

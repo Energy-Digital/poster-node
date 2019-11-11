@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import formidable from 'formidable'
 import utils from 'utility'
 import { UserInfoType } from '@/types/utils-typs'
-import { PASSWORDSALT, SETSESSIONTOKENSALT, JWTSALT } from './variable'
+import { PASSWORDSALT, SETSESSIONTOKENSALT, JWTSALT, JWT_EXPIRE_TIME } from './variable'
 
 export function setSessionToken(info: UserInfoType) {
   const mixString = info.password + info.username
@@ -10,7 +10,7 @@ export function setSessionToken(info: UserInfoType) {
 }
 
 export function setToken(payload: {[key: string]: any}) {
-    return jwt.sign(payload, JWTSALT, { expiresIn: '2h' })
+    return jwt.sign(payload, JWTSALT, { expiresIn: JWT_EXPIRE_TIME })
 }
 
 export function checkToken(token: string) {

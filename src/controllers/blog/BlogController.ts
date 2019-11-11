@@ -36,10 +36,11 @@ export default class BlogController {
             }
         }
         try {
-           const data = {
-               ...fakeInfo
+           ctx.body = {
+             code: 0,
+             msg: 'success',
+             data: {...fakeInfo}
            }
-           ctx.body = data
         }  catch(e) {
            console.log(e)
         }

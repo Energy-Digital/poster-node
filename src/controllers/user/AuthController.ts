@@ -45,8 +45,10 @@ class AuthController {
             ctx.cookies.set('_token', data.token , CookieOpt)
             ctx.body = WrapResponse(retData, SUCCESSCODE, '登陆成功')
           } else {
-            ctx.body = WrapResponse(undefined, FAILCODE, '登陆失败')
+            ctx.body = WrapResponse(undefined, FAILCODE, '登陆失败，密码错误或者用户不存在')
           }
+        } else {
+          ctx.body = WrapResponse(undefined, FAILCODE, '登陆失败，密码错误或者用户不存在')
         }
       } catch (e) {
         ctx.body = WrapResponse(undefined, FAILCODE, ERRORTIPS)
@@ -59,6 +61,11 @@ class AuthController {
       if (getCookie) {
         const parseCookie = handleCookie(getCookie)
         const getCookieToken = parseCookie['_token']
+        if (!getCookieToken) {
+          ctx.status = 401
+          ctx.body = WrapResponse(undefined, FAILCODE, 'cookie失效去登陆')
+          return
+        }
         const redis = initStone()
         const getRedisExist = await redis.exists(getCookieToken)
         if (getRedisExist === 1) { // redis找得到
