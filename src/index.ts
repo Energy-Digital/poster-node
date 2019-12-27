@@ -3,6 +3,7 @@ import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'
 import alias from 'module-alias'
 import path from 'path'
+
 const initAlias = () => {
   alias.addAliases({
     '@': path.resolve(__dirname)
@@ -11,6 +12,8 @@ const initAlias = () => {
 initAlias()
 import authRouter from '@/router/user/auth'
 import blogRouter from '@/router/blog/blog'
+import navsRouter from '@/router/navs/navs'
+import postsRouter from '@/router/posts/posts'
 import { filterAuthrization } from '@/middleware/filterAuthrization'
 import sequelize from './connect/query'
 
@@ -32,10 +35,12 @@ app.use(cors({
   allowHeaders: ['Content-Type', 'Authorization', 'Accept']
 })); // 处理跨域的包，默认全部开放
 app.use(bodyParser())
-app.use(filterAuthrization())
+//app.use(filterAuthrization())
 
 app.use(authRouter.routes())
 app.use(blogRouter.routes())
+app.use(navsRouter.routes())
+app.use(postsRouter.routes())
 
 app.listen(PORT, () => {
   console.log(`Nodejs server will running in ${PORT}`)

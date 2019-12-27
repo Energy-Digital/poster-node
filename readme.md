@@ -8,6 +8,10 @@
 
 ![MV2OUI.md.jpg](https://s2.ax1x.com/2019/11/08/MV2OUI.md.jpg)
 
+Install nodemon
+```
+sudo npm install -g nodemon
+```
 
 Dev Mode
 ```
