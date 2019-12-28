@@ -1,9 +1,9 @@
 import { Next, Context } from 'koa'
 
 // Model
-import Post from '@/models/post/post.model'
+import Assets from '@/models/assets/assets.model'
 
-export default class PostsController {
+export default class AssetsController {
 
     /*static async add(ctx: Context, next: Next) {
         try {
@@ -20,7 +20,7 @@ export default class PostsController {
         try {
 
             // Query Database
-            await Post.findAndCountAll({
+            await Assets.findAndCountAll({
                 //attributes:["name", "name_sublang"]
             }).then(res => {
 

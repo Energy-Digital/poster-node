@@ -14,6 +14,15 @@ import authRouter from '@/router/user/auth'
 import blogRouter from '@/router/blog/blog'
 import navsRouter from '@/router/navs/navs'
 import postsRouter from '@/router/posts/posts'
+import assetsRouter from '@/router/assets/assets'
+import basicRouter from '@/router/basic/basic'
+import catesRouter from '@/router/cates/cates'
+import visitorsRouter from '@/router/visitors/visitors'
+
+import loginLogsRouter from '@/router/loginlogs/loginlogs'
+import smRouter from '@/router/socialmedia/socialmedia'
+import themesRouter from '@/router/themes/themes'
+
 import { filterAuthrization } from '@/middleware/filterAuthrization'
 import sequelize from './connect/query'
 
@@ -38,9 +47,18 @@ app.use(bodyParser())
 //app.use(filterAuthrization())
 
 app.use(authRouter.routes())
+
+
 app.use(blogRouter.routes())
 app.use(navsRouter.routes())
 app.use(postsRouter.routes())
+app.use(assetsRouter.routes())
+app.use(basicRouter.routes())
+app.use(catesRouter.routes())
+app.use(visitorsRouter.routes())
+app.use(loginLogsRouter.routes())
+app.use(smRouter.routes())
+app.use(themesRouter.routes())
 
 app.listen(PORT, () => {
   console.log(`Nodejs server will running in ${PORT}`)

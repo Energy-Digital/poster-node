@@ -1,9 +1,9 @@
 import { Next, Context } from 'koa'
 
 // Model
-import Post from '@/models/post/post.model'
+import SocialMedia from '@/models/socialmedia/socialmedia.model'
 
-export default class PostsController {
+export default class SMController {
 
     /*static async add(ctx: Context, next: Next) {
         try {
@@ -16,11 +16,11 @@ export default class PostsController {
     static async data(ctx: Context, next: Next) {
 
         let rData: Object = {};
-
+        
         try {
 
             // Query Database
-            await Post.findAndCountAll({
+            await SocialMedia.findAll({
                 //attributes:["name", "name_sublang"]
             }).then(res => {
 

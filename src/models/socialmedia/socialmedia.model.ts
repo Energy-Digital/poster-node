@@ -1,20 +1,16 @@
 import sequelize from '@/connect/query'
 import Sequelize from 'sequelize'
 
-// 网页全局导航 Navigation Bar
-const Nav: any = sequelize.define('layout_nav', {
+// 社交媒体 Social Media
+const SocialMedia: any = sequelize.define('social_media', {
     id: {
         type: Sequelize.NUMBER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
-    }, 
+    },
     name: {
         type: Sequelize.STRING,
-        allowNull: false
-    },
-    name_sublang: {
-        type: Sequelize.TIME,
         allowNull: false
     },
     url: {
@@ -27,4 +23,4 @@ const Nav: any = sequelize.define('layout_nav', {
     }
 }, {freezeTableName: true, timestamps: false})
 
-export default Nav
+export default SocialMedia

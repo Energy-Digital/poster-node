@@ -1,30 +1,40 @@
 import sequelize from '@/connect/query'
 import Sequelize from 'sequelize'
 
-// 网页全局导航 Navigation Bar
-const Nav: any = sequelize.define('layout_nav', {
+// 登录记录 Login Log
+const LoginLog: any = sequelize.define('login_act', {
     id: {
         type: Sequelize.NUMBER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     }, 
-    name: {
+    ip: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    name_sublang: {
-        type: Sequelize.TIME,
+    
+    // 不记得了
+    tim: {
+        type: Sequelize.NUMBER,
         allowNull: false
     },
-    url: {
-        type: Sequelize.STRING,
+
+    // 不记得了
+    state: {
+        type: Sequelize.NUMBER,
         allowNull: false
     },
-    icon: {
+
+    // 不记得了
+    ex: {
         type: Sequelize.STRING,
+        allowNull: true
+    },
+    ts: {
+        type: Sequelize.NUMBER,
         allowNull: false
     }
 }, {freezeTableName: true, timestamps: false})
 
-export default Nav
+export default LoginLog

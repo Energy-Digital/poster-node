@@ -1,5 +1,3 @@
-import initStone  from '@/utils/redis'
-import query from '@/connect/query'
 import { Next, Context } from 'koa'
 
 // Model
@@ -16,7 +14,9 @@ export default class NavsController {
     }*/
 
     static async data(ctx: Context, next: Next) {
-        var rData;
+
+        let rData: Object = {};
+
         try {
 
             // Query Database

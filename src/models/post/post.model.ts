@@ -1,6 +1,7 @@
 import sequelize from '@/connect/query'
 import Sequelize from 'sequelize'
 
+// 文章 （博客文章和普通文章一样，只是个分类）Post (Blog is a category)
 const Post: any = sequelize.define('posts', {
     id: {
         type: Sequelize.NUMBER,
